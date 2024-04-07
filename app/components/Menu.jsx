@@ -24,11 +24,11 @@ const navItems = [
 ].map((n, idx) => ({ ...n, id: idx + 1 }));
 
 export default function Menu() {
-  const pathname = usePathname() || "/";
+  const pathname = usePathname();
   const [selected, setSelected] = React.useState(pathname);
 
   return (
-    <div className="flex items-center justify-center space-x-1 py-10">
+    <nav className="flex items-center justify-center space-x-1 py-10">
       {navItems.map(({ label, id, path }) => {
         const isActive = path === pathname;
 
@@ -39,8 +39,8 @@ export default function Menu() {
               onMouseOver={() => setSelected(path)}
               onMouseLeave={() => setSelected(pathname)}
               className={`${
-                isActive && selected === id ? "" : "hover:text-white/60"
-              } relative rounded-full px-3 py-1.5 text-sm font-medium text-white outline-sky-400 transition focus-visible:outline-2`}
+                isActive && selected === id ? "" : "hover:text-white/80"
+              } text-md relative rounded-full px-3 py-[.7rem] font-medium text-white outline-sky-400 transition focus-visible:outline-2`}
               style={{
                 WebkitTapHighlightColor: "transparent",
               }}
@@ -49,8 +49,8 @@ export default function Menu() {
                 <motion.span
                   layoutId="bubble"
                   className="absolute inset-0 z-10 bg-white/15 mix-blend-difference"
-                  style={{ borderRadius: 9999 }}
-                  transition={{ type: "spring", bounce: 0.2, duration: 0.9 }}
+                  style={{ borderRadius: "8px" }}
+                  transition={{ type: "spring", bounce: 0.25, duration: 0.9 }}
                 />
               )}
               {label}
@@ -58,6 +58,6 @@ export default function Menu() {
           </Link>
         );
       })}
-    </div>
+    </nav>
   );
 }
