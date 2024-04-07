@@ -4,14 +4,6 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-// const TABS = [
-//   { id: "world", label: "World" },
-//   { id: "ny", label: "N.Y." },
-//   { id: "business", label: "Business" },
-//   { id: "arts", label: "Arts" },
-//   { id: "science", label: "Science" },
-// ];
-
 const navItems = [
   {
     path: "/",
@@ -56,9 +48,9 @@ export default function Menu() {
               {path === selected && (
                 <motion.span
                   layoutId="bubble"
-                  className="absolute inset-0 z-10 bg-white mix-blend-difference"
+                  className="absolute inset-0 z-10 bg-white/15 mix-blend-difference"
                   style={{ borderRadius: 9999 }}
-                  transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                  transition={{ type: "spring", bounce: 0.2, duration: 0.9 }}
                 />
               )}
               {label}
